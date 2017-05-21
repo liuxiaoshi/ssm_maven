@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lxs.ssm.bean.Student;
-import com.lxs.ssm.service.StusentService;
+import com.lxs.ssm.service.IStudentService;
 
 @Controller
 public class StudentController {
 
 	@Autowired
-	StusentService  sService ;
+	IStudentService  studService ;
 	
 	@RequestMapping("/studs")
 	public  String  getAllStudents(
@@ -25,7 +25,7 @@ public class StudentController {
 			Model model){
     //在查询之前使用分页   pn第几页 每页10条
 	PageHelper.startPage(pn, 10);	
-	List<Student> students=sService.getAllStudents();
+	List<Student> students=studService.getAllStudents();
 	//可以使用PageInfo对结果集合进行包装 直接把pageInfo交给前端页面
 	//第二个参数表示连续显示的页数 5页
 	PageInfo pageInfo = new PageInfo(students,5);

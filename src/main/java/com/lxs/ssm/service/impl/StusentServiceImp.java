@@ -1,4 +1,4 @@
-package com.lxs.ssm.service;
+package com.lxs.ssm.service.impl;
 
 import java.util.List;
 
@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.lxs.ssm.bean.Student;
 import com.lxs.ssm.dao.StudentMapper;
+import com.lxs.ssm.service.IStudentService;
 
-@Service
-public class StusentService {
+//名字跟引用的一致
+@Service("studService")
+public class StusentServiceImp implements IStudentService {
 
 	@Autowired
 	StudentMapper studentMapper;
